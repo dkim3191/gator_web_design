@@ -5,7 +5,7 @@ window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
         document.body.classList.remove("resize-animation-stopper");
-    }, 400);
+    }, 150);
 });
 
 const mobileNavToggle = document.querySelector("#mobile-nav-toggle");
