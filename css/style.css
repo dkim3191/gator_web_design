@@ -16,7 +16,7 @@
         --h1-font-size: clamp(2.25rem, 1.607rem + 3.214vw, 4.5rem);
         --h2-font-size: calc(var(--h1-font-size) * 0.8);
         --h3-font-size: clamp(1.3rem, 1.1rem + 1vw, 2rem);
-        --p-font-size: clamp(1.2rem, 0.971rem + 1.143vw, 2rem);
+        --p-font-size: clamp(1rem, 1.5vw, 1.25rem);
     }
 
     * {
@@ -46,11 +46,6 @@
         max-width: 60ch;
     }
 
-    .resize-animation-stopper * {
-        animation: none !important;
-        transition: none !important;
-    }
-
     .container {
         max-width: var(--content-max-width);
         margin: auto;
@@ -62,7 +57,7 @@
         color: var(--color-background);
         padding: calc(var(--p-font-size) * 0.6) var(--p-font-size);
         font-weight: 800;
-        font-size: calc(var(--p-font-size) * 0.8);
+        font-size: calc(var(--p-font-size));
         border-radius: 0.5rem;
     }
 
@@ -89,6 +84,10 @@
             .nav-links {
                 display: flex;
                 list-style: none;
+
+                a {
+                    font-size: calc(var(--p-font-size));
+                }
 
                 a:not(.primary-btn) {
                     color: var(--color-body-text);
@@ -117,19 +116,14 @@
                 }
 
                 p {
-                    font-size: var(--p-font-size);
+                    font-size: calc(var(--p-font-size) * 0.9);
                     margin-bottom: var(--p-font-size);
                 }
             }
 
             .hero-img {
-                width: 100%;
-                margin-top: calc(var(--p-font-size) * 3);
-
                 img {
-                    display: block;
                     width: 100%;
-                    margin: 0 auto;
                 }
             }
         }
@@ -284,6 +278,7 @@
 
         ul.nav-links {
             position: fixed;
+            max-height: 100%;
             z-index: -1;
             flex-direction: column;
             gap: calc(var(--p-font-size) * 1.5);
@@ -315,9 +310,13 @@
             transform: translateY(0);
         }
     }
+
+    .hero-img {
+        margin-top: calc(var(--p-font-size) * 3);
+    }
 }
 
-/* Tablet and desktop */
+/* Desktop */
 @media (min-width: 1023px) {
     nav {
         padding-right: 1rem;
@@ -330,10 +329,15 @@
             align-items: center;
             gap: 3rem;
             font-size: 1.5rem;
+        }
+    }
 
-            .contact-link-wrapper {
-                padding: 1rem;
-            }
+    .hero .container {
+        display: flex;
+        gap: 3rem;
+
+        >* {
+            flex: 1;
         }
     }
 
